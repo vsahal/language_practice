@@ -25,7 +25,7 @@ public class PalindromeStack {
             System.out.println("Palindrome");
         }
         else {
-            System.out.println("Not a Palindrome.")
+            System.out.println("Not a Palindrome. ")
         }
     }
 }
