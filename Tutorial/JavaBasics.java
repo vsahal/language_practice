@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class JavaBasics {
 
@@ -117,6 +118,64 @@ public class JavaBasics {
 
     }
 
+    public static void shallowCopyArrays() {
+        int[] numbers = {1, 2, 3, 4, 5};
+        int[] positiveNumbers = numbers;
+
+        for (int i = 0; i < positiveNumbers.length; i++) {
+            System.out.println("Copied int array:" + positiveNumbers[i]);
+        }
+    }
+
+    public static void deepCopyArrays() {
+
+        int[] source = {1, 2, 3, 4, 5, 6};
+        int[] destination = new int[6];
+
+        for (int i = 0; i < source.length; i++) {
+            destination[i] = source[i];
+        }
+
+        System.out.println(Arrays.toString(destination));
+
+    }
+
+    public static void funcArrayCopy() {
+
+        int[] n1 = {2, 3, 12, 4, 12, -2};
+        int[] n3 = new int[5];
+        int[] n2 = new int[n1.length];
+
+        System.arraycopy(n1, 0, n2, 0, n1.length);
+        System.out.println("n2 = " + Arrays.toString(n2));
+
+        System.arraycopy(n1, 2, n3, 1, 2);
+
+        System.out.println("n3 = " + Arrays.toString(n3));
+
+    }
+
+    public static void TwoDArrayCopy() {
+
+        int[][] source = {
+                {1, 2, 3, 4},
+                {5, 6},
+                {0, 2, 42, -4, 5},
+        };
+
+        int[][] destination = new int[source.length][];
+
+        for (int i = 0; i < destination.length; i++) {
+            destination[i] = new int[source[i].length];
+
+            for (int j = 0; j < destination[i].length; j++) {
+                destination[i][j] = source[i][j];
+            }
+        }
+
+        System.out.println(Arrays.deepToString(destination));
+    }
+
     public static void main(String[] args) {
 
         JavaBasics tester = new JavaBasics();
@@ -137,5 +196,13 @@ public class JavaBasics {
         arrays();
 
         arrays2();
+
+        shallowCopyArrays();
+
+        deepCopyArrays();
+
+        funcArrayCopy();
+
+        TwoDArrayCopy();
     }
 }
